@@ -1,6 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
+
 
 # Constants set with uppercase.
 SCOPE = [
@@ -27,7 +27,7 @@ def get_sales_data():
         print("Data should be six numbers, separated by commas.")
         print("Example: 10,20,30,40,50,60\n")
 
-        data_str = input("Enter your data here: ") 
+        data_str = input("Enter your data here:\n") 
 
         sales_data = data_str.split(",") #Converts a string of data into a list of values 
          #And then we use single statement to call our validate function
@@ -74,8 +74,9 @@ def update_surplus_worksheet(data):
     surplus_worksheet = SHEET.worksheet("surplus")
     surplus_worksheet.append_row(data)
     print("Surplus worksheet updated succesfully.\n")   
-
 """
+
+# Refactored version of the above functions update_sales_worksheet and update_surplus_worksheet.
 
 def update_worksheet(data, worksheet):
     """
@@ -138,7 +139,6 @@ def calculate_stock_data(data):
         new_stock_data.append(round(stock_num))
 
     return new_stock_data
-
 
 
 
